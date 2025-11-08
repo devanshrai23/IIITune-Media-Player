@@ -32,26 +32,35 @@ It provides a smooth, dark-themed experience with playlist, history tracking, an
 
 ## 🧩 Project Structure
 
-src/main/java/com/devansh/mediaplayer/
-  ├── MainApp.java
-  ├── controllers/
-  │   ├── MediaPlayerController.java
-  │   └── SplashController.java
-  ├── models/
-  │   └── Track.java
-  └── utils/
-      ├── FileUtils.java
-      └── HistoryUtils.java
-
-src/main/resources/com/devansh/mediaplayer/
-  ├── media_player.fxml
-  ├── SplashScreen.fxml
-  ├── style.css
-  ├── default_art.jpg
-  └── logo.png
-
-pom.xml
-.history.txt (ignored)
+IIITune-Media-Player/
+│
+├── pom.xml
+├── history.txt                 # Stores playback history (ignored by Git)
+│
+└── src/
+    └── main/
+        ├── java/
+        │   └── com/devansh/mediaplayer/
+        │       ├── MainApp.java
+        │       │
+        │       ├── controllers/
+        │       │   ├── MediaPlayerController.java
+        │       │   └── SplashController.java
+        │       │
+        │       ├── models/
+        │       │   └── Track.java
+        │       │
+        │       └── utils/
+        │           ├── FileUtils.java
+        │           └── HistoryUtils.java
+        │
+        └── resources/
+            └── com/devansh/mediaplayer/
+                ├── media_player.fxml
+                ├── SplashScreen.fxml
+                ├── style.css
+                ├── default_art.jpg
+                └── logo.png
 
 ---
 
