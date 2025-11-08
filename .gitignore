@@ -1,0 +1,20 @@
+# Maven & Java
+target/
+*.class
+*.log
+*.jar
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IntelliJ / VSCode / Eclipse
+.idea/
+.vscode/
+*.iml
+*.classpath
+*.project
+.settings/
+
+# Local data
+history.txt
