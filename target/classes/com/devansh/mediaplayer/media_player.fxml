@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.devansh.mediaplayer.controllers.MediaPlayerController"
+            stylesheets="@style.css"
+            prefWidth="800" prefHeight="500"
+            style="-fx-padding: 0;">
+
+    <!-- Center Section: Now Playing Background + Overlay -->
+    <center>
+        <StackPane fx:id="backgroundContainer" styleClass="now-playing-container">
+            <ImageView fx:id="backgroundArt" preserveRatio="false" fitWidth="800" fitHeight="350"/>
+            <VBox alignment="CENTER" spacing="5">
+                <Label fx:id="songLabel" text="No Track Playing" styleClass="song-title-overlay"/>
+                <Label fx:id="artistLabel" text="—" styleClass="song-artist-overlay"/>
+            </VBox>
+        </StackPane>
+    </center>
+
+    <!-- Bottom: Controls + Tabs (Playlist / History) -->
+    <bottom>
+        <VBox spacing="10" alignment="CENTER" styleClass="control-panel">
+
+            <!-- Control Buttons -->
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="⏮" onAction="#prevTrack" styleClass="control-btn"/>
+                <Button text="▶" onAction="#playMedia" styleClass="control-btn"/>
+                <Button text="⏸" onAction="#pauseMedia" styleClass="control-btn"/>
+                <Button text="⏹" onAction="#stopMedia" styleClass="control-btn"/>
+                <Button text="⏭" onAction="#nextTrack" styleClass="control-btn"/>
+            </HBox>
+
+            <!-- Progress + Volume -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Progress:" styleClass="label-small"/>
+                <Slider fx:id="timeSlider" prefWidth="400"/>
+                <Label fx:id="timeLabel" text="00:00 / 00:00" styleClass="label-small"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="🔊" styleClass="label-small"/>
+                <Slider fx:id="volumeSlider" prefWidth="150"/>
+            </HBox>
+
+            <!-- Action Buttons -->
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="📂 Open File" onAction="#openFile" styleClass="action-btn"/>
+                <Button text="➕ Add to Playlist" onAction="#addToPlaylist" styleClass="action-btn"/>
+                <Button text="♥ Add Current" onAction="#addCurrentToPlaylist" styleClass="action-btn"/>
+            </HBox>
+
+            <!-- Playlist + History Tabs -->
+            <TabPane fx:id="tabPane"
+                    tabClosingPolicy="UNAVAILABLE"
+                    styleClass="tab-container"
+                    prefWidth="600"
+                    prefHeight="150">
+
+                <tabs>
+                    <Tab text="Playlist">
+                        <content>
+                            <ListView fx:id="playlistView" styleClass="playlist" prefHeight="120"/>
+                        </content>
+                    </Tab>
+
+                    <Tab text="History">
+                        <content>
+                            <ListView fx:id="historyView" styleClass="playlist" prefHeight="120"/>
+                        </content>
+                    </Tab>
+                </tabs>
+            </TabPane>
+        </VBox>
+    </bottom>
+</BorderPane>

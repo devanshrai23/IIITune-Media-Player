@@ -1,0 +1,295 @@
+/* ===== General Theme ===== */
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #1c1c24, #12121a);
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-text-fill: white;
+}
+
+.now-playing-container {
+    -fx-background-color: #0f0f0f;
+    -fx-alignment: center;
+    -fx-pref-height: 350;
+    -fx-background-radius: 0 0 12 12;
+    -fx-overflow: hidden;
+}
+
+.song-title-overlay {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 8, 0, 0, 2);
+}
+
+.song-artist-overlay {
+    -fx-font-size: 13px;
+    -fx-text-fill: #d0d0d0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 6, 0, 0, 1);
+}
+
+/* ===== Now Playing Area ===== */
+.now-playing-bar {
+    -fx-background-color: linear-gradient(to right, #181818, #1e1e1e);
+    -fx-padding: 8 0 8 0;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);
+}
+
+.song-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.song-artist {
+    -fx-font-size: 13px;
+    -fx-text-fill: #b0b0b0;
+}
+
+/* ===== Context Menu Styling (Right-click menu) ===== */
+.context-menu {
+    -fx-background-color: linear-gradient(to bottom, #1c1c24, #111118);
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #2a2a38;
+    -fx-border-width: 1;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);
+}
+
+/* Menu item default style */
+.menu-item {
+    -fx-background-color: transparent;
+}
+
+.menu-item .label {
+    -fx-text-fill: #f0f0f0;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+}
+
+/* Hover effect for items */
+.menu-item:hover {
+    -fx-background-color: rgba(0, 191, 255, 0.2);
+    -fx-background-radius: 6;
+}
+
+.menu-item:hover .label {
+    -fx-text-fill: #00bfff;
+}
+
+/* Separator line between items (optional subtle tone) */
+.context-menu .separator {
+    -fx-background-color: #2c2c38;
+}
+
+/* ===== Control Panel ===== */
+.control-panel {
+    -fx-background-color: rgba(30,30,40,0.8);
+    -fx-background-radius: 15;
+    -fx-padding: 15;
+}
+
+/* ===== Modern Buttons ===== */
+.control-btn {
+    -fx-background-radius: 50%;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-padding: 10 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 1);
+    -fx-transition: all 0.3s ease;
+}
+.control-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+.control-btn:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* ===== Sliders ===== */
+.slider .thumb {
+    -fx-background-color: #0078D7;
+}
+.slider .track {
+    -fx-background-color: #333;
+}
+
+/* ===== Labels ===== */
+.label-small {
+    -fx-font-size: 12px;
+    -fx-text-fill: #dddddd;
+}
+/* ===== Universal Modern Button Style ===== */
+.action-btn {
+    -fx-background-color: linear-gradient(to bottom right, #2b2b2b, #1f1f1f);
+    -fx-text-fill: #f5f5f5;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 10;
+    -fx-padding: 6 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 5, 0, 0, 2);
+    -fx-transition: all 0.3s ease-in-out;
+    -fx-alignment: CENTER;
+}
+
+/* Hover Glow */
+.action-btn:hover {
+    -fx-background-color: linear-gradient(to bottom right, #3a3a3a, #252525);
+    -fx-text-fill: #00bfff; /* Soft cyan accent */
+    -fx-scale-x: 1.08;
+    -fx-scale-y: 1.08;
+}
+
+/* Pressed Button Effect */
+.action-btn:pressed {
+    -fx-background-color: linear-gradient(to bottom right, #505050, #303030);
+    -fx-text-fill: #66d9ff;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* ===== Playlist & List Styling ===== */
+.playlist {
+    -fx-background-color: #1e1e1e;
+    -fx-control-inner-background: #1e1e1e;
+    -fx-border-color: transparent;
+    -fx-padding: 5;
+    -fx-background-radius: 10;
+    -fx-text-fill: #f5f5f5;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f5f5f5;
+    -fx-font-size: 13px;
+}
+.list-cell:filled:selected, .list-cell:filled:selected:focused {
+    -fx-background-color: linear-gradient(to right, #323232, #252525);
+    -fx-text-fill: #00bfff;
+}
+.list-cell:hover {
+    -fx-background-color: linear-gradient(to right, #2d2d2d, #1c1c1c);
+    -fx-cursor: hand;
+}
+
+/* Playlist label */
+.label-small {
+    -fx-text-fill: #b0b0b0;
+    -fx-font-size: 12px;
+}
+
+/* ===== Tabs (Playlist / History) - Refined Dark Styling ===== */
+.tab-container {
+    -fx-background-color: transparent;
+    -fx-tab-min-width: 100px;
+    -fx-tab-max-width: 120px;
+    -fx-background-radius: 10;
+    -fx-padding: 0;
+}
+
+.tab-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 5;
+    -fx-background-radius: 10;
+}
+
+/* Remove that ugly white strip (tab header area background) */
+.tab-pane .tab-header-area {
+    -fx-background-color: linear-gradient(to right, #181820, #1a1a1f);
+    -fx-background-radius: 10 10 0 0;
+    -fx-border-width: 0;
+    -fx-padding: 3 0 0 10;
+}
+
+/* Default (unselected) tab style */
+.tab-pane .tab {
+    -fx-background-color: #2b2b33;
+    -fx-text-fill: #cccccc;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8 8 0 0;
+    -fx-padding: 6 18 7 18;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 1);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+/* When hovering over a tab */
+.tab-pane .tab:hover {
+    -fx-background-color: rgba(80,80,90,0.9);
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,180,255,0.2), 8, 0, 0, 2);
+}
+
+/* When tab is selected */
+.tab-pane .tab:selected {
+    -fx-background-color: linear-gradient(to bottom, #3f3f4d, #2a2a36);
+    -fx-border-color: #00bfff;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(0,191,255,0.25), 10, 0, 0, 3);
+    -fx-transition: all 0.4s ease-in-out;
+}
+
+/* Tab text styling */
+.tab-pane .tab-label {
+    -fx-text-fill: #dddddd;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* Prevent that blue highlight/focus ring entirely */
+.tab:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+}
+
+/* Tab content area (where list views appear) */
+.tab-content-area {
+    -fx-background-color: rgba(20,20,25,0.9);
+    -fx-background-radius: 0 0 10 10;
+    -fx-padding: 8;
+    -fx-border-color: transparent;
+}
+
+/* Fix for the white background issue in TabPane */
+.tab-pane *.tab-header-background {
+    -fx-background-color: linear-gradient(to right, #181820, #1a1a1f);
+    -fx-border-color: transparent;
+}
+
+/* Remove the white outline when focused */
+.tab-pane:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* Removes focus glow from both tab and its internal label */
+.tab:focused,
+.tab:selected:focused,
+.tab .tab-label:focused {
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-color: transparent !important;
+    -fx-effect: none !important;
+}
+
+/* Also prevents focus border from active tab header area */
+.tab-pane:focused,
+.tab-header-area:focused,
+.tab-header-background:focused {
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+    -fx-border-color: transparent !important;
+    -fx-effect: none !important;
+}
