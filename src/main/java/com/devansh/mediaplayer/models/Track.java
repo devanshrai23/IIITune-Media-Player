@@ -5,9 +5,7 @@ import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
 
-/**
- * Represents a single media track with basic metadata.
- */
+// Represents a single media track with basic metadata.
 public class Track {
     private String title;
     private String filePath;

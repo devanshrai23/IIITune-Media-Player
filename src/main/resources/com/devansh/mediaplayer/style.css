@@ -26,36 +26,6 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 6, 0, 0, 1);
 }
 
-/* ===== Now Playing Area ===== */
-.now-playing-bar {
-    -fx-background-color: linear-gradient(to right, #181818, #1e1e1e);
-    -fx-padding: 8 0 8 0;
-    -fx-alignment: center;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);
-}
-
-.song-title {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #ffffff;
-}
-
-.song-artist {
-    -fx-font-size: 13px;
-    -fx-text-fill: #b0b0b0;
-}
-
-/* ===== Context Menu Styling (Right-click menu) ===== */
-.context-menu {
-    -fx-background-color: linear-gradient(to bottom, #1c1c24, #111118);
-    -fx-background-radius: 8;
-    -fx-border-radius: 8;
-    -fx-border-color: #2a2a38;
-    -fx-border-width: 1;
-    -fx-padding: 4;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);
-}
-
 /* Menu item default style */
 .menu-item {
     -fx-background-color: transparent;
@@ -141,7 +111,7 @@
 /* Hover Glow */
 .action-btn:hover {
     -fx-background-color: linear-gradient(to bottom right, #3a3a3a, #252525);
-    -fx-text-fill: #00bfff; /* Soft cyan accent */
+    -fx-text-fill: #00bfff;
     -fx-scale-x: 1.08;
     -fx-scale-y: 1.08;
 }
@@ -200,7 +170,7 @@
     -fx-background-radius: 10;
 }
 
-/* Remove that ugly white strip (tab header area background) */
+/* tab header area background */
 .tab-pane .tab-header-area {
     -fx-background-color: linear-gradient(to right, #181820, #1a1a1f);
     -fx-background-radius: 10 10 0 0;
@@ -292,4 +262,15 @@
     -fx-faint-focus-color: transparent !important;
     -fx-border-color: transparent !important;
     -fx-effect: none !important;
+}
+
+/* ===== Context Menu Styling (Right-click menu) ===== */
+.context-menu {
+    -fx-background-color: linear-gradient(to bottom, #1c1c24, #111118);
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #2a2a38;
+    -fx-border-width: 1;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);
 }

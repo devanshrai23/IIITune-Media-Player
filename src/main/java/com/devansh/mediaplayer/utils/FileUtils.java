@@ -5,9 +5,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
-/**
- * Utility class for file selection and validation.
- */
+// Utility class for file selection and validation.
 public class FileUtils {
 
     /**
@@ -29,9 +27,7 @@ public class FileUtils {
         return fileChooser.showOpenDialog(stage);
     }
 
-    /**
-     * Validates whether a given file is a supported media format.
-     */
+    // Validates whether a given file is a supported media format.
     public static boolean isValidMediaFile(File file) {
         if (file == null) return false;
 

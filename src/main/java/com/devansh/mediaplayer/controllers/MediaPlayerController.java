@@ -114,7 +114,6 @@ public class MediaPlayerController {
         if (file != null && FileUtils.isValidMediaFile(file)) {
             Track track = new Track(file.getAbsolutePath());
 
-            // ✅ Check if the song already exists in playlist
             int existingIndex = -1;
             for (int i = 0; i < playlist.size(); i++) {
                 if (playlist.get(i).getFilePath().equals(track.getFilePath())) {
@@ -124,13 +123,13 @@ public class MediaPlayerController {
             }
 
             if (existingIndex != -1) {
-                // 🎵 Play it directly from playlist if it exists
+                // Play it directly from playlist if it exists
                 currentIndex = existingIndex;
                 playlistView.getSelectionModel().select(existingIndex);
                 playlistView.scrollTo(existingIndex);
                 playTrack(playlist.get(existingIndex));
             } else {
-                // 🎧 Play song temporarily (no playlist addition)
+                // Play song temporarily (no playlist addition)
                 playTrack(track);
                 currentIndex = -1; // reset index to show it’s not from playlist
             }
@@ -166,7 +165,7 @@ public class MediaPlayerController {
             return;
         }
 
-        // ✅ Resolve the path more efficiently
+        // Resolve the path more efficiently
         String uri = media.getSource();
         String decodedPath;
         try {
@@ -178,7 +177,7 @@ public class MediaPlayerController {
         File file = new File(decodedPath);
         Track track = new Track(file.getAbsolutePath());
 
-        // ✅ Check in a background thread
+        // Check in a background thread
         new Thread(() -> {
             boolean alreadyExists = playlist.stream()
                     .anyMatch(t -> new File(t.getFilePath()).equals(file));

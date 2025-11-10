@@ -69,7 +69,7 @@ public class HistoryUtils {
             // Always write the updated list safely (even if empty)
             Files.write(file.toPath(), updated, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 
-            System.out.println("✅ Removed only: " + trackToRemove.getTitle());
+            System.out.println("Removed only: " + trackToRemove.getTitle());
         } catch (IOException e) {
             System.err.println("⚠ Error removing from history: " + e.getMessage());
         }
