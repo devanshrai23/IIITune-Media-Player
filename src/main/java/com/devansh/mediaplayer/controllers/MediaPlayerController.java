@@ -21,14 +21,11 @@ import java.util.List;
 
 public class MediaPlayerController {
     
-    @FXML private Label songLabel, timeLabel;
+    @FXML private Label songLabel, timeLabel, artistLabel;
     @FXML private Slider timeSlider, volumeSlider;
-    @FXML private ListView<Track> playlistView;
-    @FXML private ImageView nowPlayingArt;
-    @FXML private Label artistLabel;
-    @FXML private ImageView backgroundArt;
+    @FXML private ListView<Track> playlistView, historyView;
+    @FXML private ImageView nowPlayingArt, backgroundArt;
     @FXML private StackPane nowPlayingContainer;
-    @FXML private ListView<Track> historyView;
 
     private ObservableList<Track> playlist = FXCollections.observableArrayList();
     private MediaPlayer mediaPlayer;
@@ -38,7 +35,7 @@ public class MediaPlayerController {
 
     @FXML
     public void initialize() {
-        // 🎵 Playlist setup
+        // Playlist setup
         playlistView.setItems(playlist);
         playlistView.setOnMouseClicked(e -> {
             if (e.getClickCount() == 2) {
@@ -47,7 +44,7 @@ public class MediaPlayerController {
             }
         });
 
-        // 🎵 Playlist context menu
+        // Playlist context menu
         ContextMenu playlistMenu = new ContextMenu();
         MenuItem playItem = new MenuItem("▶ Play");
         MenuItem removeItem = new MenuItem("🗑 Remove from Playlist");
@@ -63,12 +60,14 @@ public class MediaPlayerController {
             Track selected = playlistView.getSelectionModel().getSelectedItem();
             if (selected != null) playlist.remove(selected);
         });
-
+        
+        // History Setup
         ObservableList<Track> historyList = FXCollections.observableArrayList(
             com.devansh.mediaplayer.utils.HistoryUtils.loadHistory()
         );
         historyView.setItems(historyList);
 
+        // History context menu
         ContextMenu historyMenu = new ContextMenu();
         MenuItem playHistoryItem = new MenuItem("▶ Play");
         MenuItem removeHistoryItem = new MenuItem("🗑 Remove from History");
@@ -90,14 +89,13 @@ public class MediaPlayerController {
                 List<Track> updated = com.devansh.mediaplayer.utils.HistoryUtils.loadHistory();
                 historyView.getItems().setAll(updated);
 
-                // Optional: provide visual feedback
                 System.out.println("Removed from history: " + selected.getTitle());
             } else {
                 System.out.println("⚠ No track selected for removal");
             }
         });
 
-        // 🎧 Double-click to play from History
+        // Double-click to play from History
         historyView.setOnMouseClicked(e -> {
             if (e.getClickCount() == 2) {
                 Track selected = historyView.getSelectionModel().getSelectedItem();
@@ -149,6 +147,7 @@ public class MediaPlayerController {
 
             if (!alreadyExists) {
                 playlist.add(track);
+                showAlert(Alert.AlertType.INFORMATION, "❤️Song added to playlist successfully!");
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
@@ -213,57 +212,32 @@ public class MediaPlayerController {
 
         setupMetadata(media, track);
 
-        songLabel.setText(track.getTitle());
-        artistLabel.setText("Unknown Artist"); // placeholder for now
-
-        // Update background image (default or album art)
-        if (backgroundArt != null) {
-            Image bg = new Image(
-                getClass().getResource("/com/devansh/mediaplayer/default_art.jpg").toExternalForm(),
-                800, 350, false, true
-            );
-            backgroundArt.setImage(bg);
-
-            FadeTransition fade = new FadeTransition(Duration.seconds(0.8), backgroundArt);
-            fade.setFromValue(0.3);
-            fade.setToValue(1);
-            fade.play();
-        }
-
         // Animate smooth title change
         if (songLabel != null && artistLabel != null) {
             // Fade out both labels together
             FadeTransition fadeOutTitle = new FadeTransition(Duration.seconds(0.25), songLabel);
             FadeTransition fadeOutArtist = new FadeTransition(Duration.seconds(0.25), artistLabel);
-            fadeOutTitle.setFromValue(1.0);
-            fadeOutTitle.setToValue(0.0);
-            fadeOutArtist.setFromValue(1.0);
-            fadeOutArtist.setToValue(0.0);
+            fadeOutTitle.setFromValue(1.0); fadeOutTitle.setToValue(0.0);
+            fadeOutArtist.setFromValue(1.0); fadeOutArtist.setToValue(0.0);
 
             // When fade-out completes, update labels and fade back in
             fadeOutTitle.setOnFinished(event -> {
                 songLabel.setText(track.getTitle());
-                artistLabel.setText("Unknown Artist"); // placeholder for now
+                artistLabel.setText("Unknown Artist");
 
                 // Fade-in and scale-in animations
                 FadeTransition fadeInTitle = new FadeTransition(Duration.seconds(0.6), songLabel);
                 FadeTransition fadeInArtist = new FadeTransition(Duration.seconds(0.6), artistLabel);
-                fadeInTitle.setFromValue(0.0);
-                fadeInTitle.setToValue(1.0);
-                fadeInArtist.setFromValue(0.0);
-                fadeInArtist.setToValue(1.0);
+                fadeInTitle.setFromValue(0.0); fadeInTitle.setToValue(1.0);
+                fadeInArtist.setFromValue(0.0); fadeInArtist.setToValue(1.0);
 
                 // Subtle pop effect
                 ScaleTransition scaleTitle = new ScaleTransition(Duration.seconds(0.5), songLabel);
                 ScaleTransition scaleArtist = new ScaleTransition(Duration.seconds(0.5), artistLabel);
-                scaleTitle.setFromX(0.9);
-                scaleTitle.setFromY(0.9);
-                scaleTitle.setToX(1.0);
-                scaleTitle.setToY(1.0);
-                scaleArtist.setFromX(0.9);
-                scaleArtist.setFromY(0.9);
-                scaleArtist.setToX(1.0);
-                scaleArtist.setToY(1.0);
+                scaleTitle.setFromX(0.9); scaleTitle.setFromY(0.9);
+                scaleTitle.setToX(1.0); scaleTitle.setToY(1.0);
+                scaleArtist.setFromX(0.9); scaleArtist.setFromY(0.9);
+                scaleArtist.setToX(1.0); scaleArtist.setToY(1.0);
 
                 // Smooth easing for natural motion
                 fadeInTitle.setInterpolator(javafx.animation.Interpolator.EASE_BOTH);
