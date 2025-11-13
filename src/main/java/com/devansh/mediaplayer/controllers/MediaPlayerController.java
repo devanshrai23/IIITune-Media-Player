@@ -59,6 +59,7 @@ public class MediaPlayerController {
         removeItem.setOnAction(e -> {
             Track selected = playlistView.getSelectionModel().getSelectedItem();
             if (selected != null) playlist.remove(selected);
+            System.out.println("Removed from playlist: " + selected.getTitle());
         });
         
         // History Setup

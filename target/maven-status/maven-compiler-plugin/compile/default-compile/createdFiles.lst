@@ -1,3 +1,5 @@
+com\devansh\mediaplayer\controllers\SplashController.class
+com\devansh\mediaplayer\MainApp.class
 com\devansh\mediaplayer\models\Track.class
 com\devansh\mediaplayer\utils\FileUtils.class
 com\devansh\mediaplayer\utils\HistoryUtils.class

@@ -4,7 +4,6 @@ import com.devansh.mediaplayer.models.Track;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class HistoryUtils {
 
@@ -69,7 +68,6 @@ public class HistoryUtils {
             // Always write the updated list safely (even if empty)
             Files.write(file.toPath(), updated, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 
-            System.out.println("Removed only: " + trackToRemove.getTitle());
         } catch (IOException e) {
             System.err.println("⚠ Error removing from history: " + e.getMessage());
         }
